@@ -83,12 +83,39 @@ html.pl-on{overflow:hidden}
 .pl-bar{width:8rem;height:3px;border-radius:3px;background:var(--line);overflow:hidden}.pl-bar i{display:block;height:100%;width:40%;border-radius:3px;background:linear-gradient(90deg,var(--o),var(--y),var(--c));animation:plb 1.2s ease-in-out infinite}
 @keyframes pls{to{transform:rotate(360deg)}}@keyframes plp{50%{transform:scale(.94);opacity:.85}}@keyframes plb{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}
 @media(prefers-reduced-motion:reduce){.pl-ring,.pl-box img,.pl-bar i{animation:none!important}}
+
+:root{--gl:rgba(255,255,255,.58);--gb:rgba(20,32,46,.13);--bf:rgba(255,255,255,.9)}
+:root[data-theme=dark]{--gl:rgba(22,33,58,.55);--gb:rgba(255,255,255,.17);--bf:rgba(26,40,70,.92)}
+html{scroll-padding-top:6rem}
+header.hd{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;padding:1.3rem max(5vw,env(safe-area-inset-right)) 0 max(5vw,env(safe-area-inset-left));padding-top:calc(1.3rem + env(safe-area-inset-top));background:none;backdrop-filter:none;-webkit-backdrop-filter:none;pointer-events:none}
+header.hd>*{pointer-events:auto}
+.hd .brand{justify-self:start;display:grid;place-items:center;width:3.5rem;height:3.5rem;padding:0;border-radius:50%;background:var(--gl);border:1px solid var(--gb);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 8px 24px #0002}
+.hd .brand img{width:78%;height:auto}
+.hd .tg{justify-self:end}
+nav#nv{position:relative;display:flex;flex-direction:row;margin:0;padding:.5rem .6rem;border-radius:2rem;background:var(--gl);border:1px solid var(--gb);-webkit-backdrop-filter:blur(20px) saturate(1.5);backdrop-filter:blur(20px) saturate(1.5);box-shadow:0 14px 40px #0003,inset 0 1px 0 #ffffff33}
+nav#nv a{position:relative;z-index:2;display:grid;justify-items:center;gap:.22rem;width:4.7rem;padding:.4rem 0 .3rem;border-radius:1rem;background:none;color:var(--mut);font-size:.72rem;font-weight:700;white-space:nowrap;text-decoration:none;transition:color .3s}
+nav#nv a svg{width:1.45rem;height:1.45rem;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .45s cubic-bezier(.5,1.7,.4,1),filter .3s}
+nav#nv a:hover{color:var(--ink)}nav#nv a:hover svg{transform:translateY(-.1rem)}
+nav#nv a.on{color:var(--ink);background:none}
+nav#nv a.on svg{transform:translateY(-.45rem) scale(1.1);color:var(--c);filter:drop-shadow(0 0 .45rem var(--c))}
+.bump{position:absolute;z-index:1;left:0;top:-1.05rem;height:calc(1.05rem + 1px);pointer-events:none;transition:transform .55s cubic-bezier(.5,1.3,.35,1),width .55s cubic-bezier(.5,1.3,.35,1)}
+.bump svg{display:block;width:100%;height:100%;overflow:visible}
+.bump path{fill:var(--bf);stroke:var(--c);stroke-width:2;filter:drop-shadow(0 0 .4rem var(--c))}
+.bump.nt{transition:none}
+section#home{padding-top:6.8rem}
+@media(max-width:900px){
+header.hd{grid-template-columns:1fr auto;padding-top:calc(.8rem + env(safe-area-inset-top))}
+.hd .brand{width:2.9rem;height:2.9rem}
+nav#nv{position:fixed;display:flex;left:50%;bottom:calc(1.1rem + env(safe-area-inset-bottom));top:auto;right:auto;transform:translateX(-50%);padding:.45rem .4rem;margin:0}
+nav#nv a{width:calc((min(100vw - 1.4rem,34rem) - .8rem - 2px)/8);font-size:.6rem;gap:.15rem}
+nav#nv a svg{width:1.25rem;height:1.25rem}
+section#home{padding-top:5.5rem}
+footer{padding-bottom:calc(6.5rem + env(safe-area-inset-bottom))}
+html{scroll-padding-top:4.5rem}}
 </style><noscript><style>#pl{display:none}html.pl-on{overflow:auto}</style></noscript><link rel="preload" as="image" href="assets/images/profile.jpg"></head><body><a class="skip" href="#main">Skip to main content</a>
 <script>document.documentElement.classList.add("pl-on");(function(){var s;try{s=localStorage.getItem("stk-theme")}catch(e){}document.documentElement.dataset.theme=s||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light")})()</script>
 <div id="pl" role="status" aria-live="polite"><span class="sr">Loading…</span><div class="pl-in" aria-hidden="true"><div class="pl-box"><div class="pl-ring"></div><img class="ld" src="assets/images/logo-dark.png" alt=""><img class="ll" src="assets/images/logo-light.png" alt=""></div><div class="pl-t">STK987</div><div class="pl-bar"><i></i></div></div></div><div class="bg"></div>
-<header><div class="w"><a class="brand" href="#home" aria-label="STK Tech home"><img class="ld" src="assets/images/logo-dark.png" width="560" height="293" alt="STK Tech logo: a glowing orange eye with blue and yellow circuit lines"><img class="ll" src="assets/images/logo-light.png" width="560" height="293" alt="STK Tech logo: a glowing orange eye with blue and yellow circuit lines"></a>
-<nav id="nv" aria-label="Main"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#journey">Journey</a><a href="#stk">STK Tech</a><a href="#social">Social</a><a href="#contact">Contact</a></nav>
-<button class="tg" id="tg" aria-label="Dark mode" aria-pressed="false"><span class="k"></span><i aria-hidden="true">☀</i><i aria-hidden="true">☾</i></button><button class="bu" id="bu" aria-label="Menu" aria-expanded="false" aria-controls="nv"><span aria-hidden="true">☰</span></button></div></header>
+<header class="hd"><a class="brand" href="#home" aria-label="STK Tech home"><img class="ld" src="assets/images/logo-dark.png" width="560" height="293" alt="STK Tech logo: a glowing orange eye with blue and yellow circuit lines"><img class="ll" src="assets/images/logo-light.png" width="560" height="293" alt="STK Tech logo: a glowing orange eye with blue and yellow circuit lines"></a><nav id="nv" aria-label="Main"><span class="bump" aria-hidden="true"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path d="M0 30C20 30 22 2 50 2s30 28 50 28" vector-effect="non-scaling-stroke"/></svg></span><a href="#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 3l9 8v10H3z"/><path d="M9 21v-6h6v6"/></svg><span>Home</span></a><a href="#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>About</span></a><a href="#skills"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg><span>Skills</span></a><a href="#projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Projects</span></a><a href="#journey"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 22V4M4 4h14l-2 5 2 5H4"/></svg><span>Journey</span></a><a href="#stk"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg><span>STK Tech</span></a><a href="#social"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg><span>Social</span></a><a href="#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 7L2 7"/></svg><span>Contact</span></a></nav><button class="tg" id="tg" aria-label="Dark mode" aria-pressed="false"><span class="k"></span><i aria-hidden="true">☀</i><i aria-hidden="true">☾</i></button></header>
 <main id="main" tabindex="-1">
 <section class="s hero" id="home" aria-labelledby="home-h"><div class="rv"><span class="tag">● Tech Enthusiast &amp; Creator</span><h1 id="home-h">Hi, I’m <span>Tharany</span></h1>
 <p class="sub">Tech Enthusiast &amp; Creator. I build websites, explore electronics and share what I learn through STK Tech.</p>
@@ -165,13 +192,17 @@ fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:d}
 s.textContent='Opening your email app…';location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Message from '+f.n.value+' via STK987.com')+'&body='+encodeURIComponent(f.m.value+'\n\nFrom: '+f.n.value+' ('+f.e.value+')')});
 var tb=$('tg');function sp(){tb.setAttribute('aria-pressed',String(document.documentElement.dataset.theme==='dark'))}sp();
 tb.addEventListener('click',function(){var r=document.documentElement,n=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('stk-theme',n)}catch(e){}sp()});
-var bu=$('bu'),nv=$('nv');function sm(o){nv.classList.toggle('open',o);bu.setAttribute('aria-expanded',String(o))}
-bu.addEventListener('click',function(){sm(!nv.classList.contains('open'))});nv.addEventListener('click',function(){sm(false)});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nv.classList.contains('open')){sm(false);bu.focus()}});
+var nv=$('nv'),bump=nv.querySelector('.bump'),nl=[].slice.call(nv.querySelectorAll('a')),lock=0;
+function moveBump(a){var x=parseFloat(getComputedStyle(document.documentElement).fontSize)*.3;bump.style.width=(a.offsetWidth+x*2)+'px';bump.style.transform='translateX('+(a.offsetLeft-x)+'px)'}
+function setActive(a){nl.forEach(function(n){var on=n===a;n.classList.toggle('on',on);if(on)n.setAttribute('aria-current','true');else n.removeAttribute('aria-current')});moveBump(a)}
+nl.forEach(function(a){a.addEventListener('click',function(){lock=Date.now()+1300;setActive(a)})});
+bump.classList.add('nt');setActive(nl[0]);requestAnimationFrame(function(){requestAnimationFrame(function(){bump.classList.remove('nt')})});
+function rb(){var a=nv.querySelector('a.on')||nl[0];bump.classList.add('nt');moveBump(a);requestAnimationFrame(function(){bump.classList.remove('nt')})}
+addEventListener('resize',rb);addEventListener('load',rb);
 document.querySelectorAll('[data-tilt]').forEach(function(el){var p=el.parentElement;function mv(x,y,k){var r=el.getBoundingClientRect();x=(x-r.left)/r.width-.5;y=(y-r.top)/r.height-.5;el.style.transform='perspective(900px) rotateY('+x*k+'deg) rotateX('+-y*k+'deg) translateZ(16px)'}
 p.addEventListener('mousemove',function(e){mv(e.clientX,e.clientY,18)});p.addEventListener('mouseleave',function(){el.style.transform=''});
 el.addEventListener('touchmove',function(e){mv(e.touches[0].clientX,e.touches[0].clientY,12)},{passive:true});el.addEventListener('touchend',function(){el.style.transform=''})});
 var st=$('stage');st.addEventListener('mousemove',function(e){var r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;st.querySelectorAll('[data-d]').forEach(function(n){var d=+n.dataset.d;n.style.translate=x*d+'px '+y*d+'px'})});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.12});document.querySelectorAll('.rv').forEach(function(n){io.observe(n)});
-var na=document.querySelectorAll('nav a'),so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)na.forEach(function(a){var on=a.getAttribute('href')=='#'+e.target.id;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')})})},{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('main section').forEach(function(s){so.observe(s)});
+var na=document.querySelectorAll('nav a'),so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&Date.now()>lock){var a=nv.querySelector('a[href="#'+e.target.id+'"]');if(a)setActive(a)}})},{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('main section').forEach(function(s){so.observe(s)});
 </script></body></html>
